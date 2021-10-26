@@ -48,6 +48,8 @@ export interface TextInputMaskOptionProp {
     validator?: (value: string, settings: TextInputMaskOptionProp) => boolean
     getRawValue?: (value: string, settings: TextInputMaskOptionProp) => any
     translation?: { [s: string]: (val: string) => string | null | undefined }
+
+    reversed?: boolean
 }
 
 // TextInputMask Props
