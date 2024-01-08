@@ -8,7 +8,7 @@
             "url": "https://www.opensource.org/licenses/mit-license.php"
         }
     ],
-    "main": "./rnmt.js",
+    "main": "./dist/rnmt.js",
     "scripts": {
         "clean": "rimraf dist",
         "test": "jest",
@@ -36,7 +36,7 @@
     },
     "homepage": "https://github.com/benhurott/react-native-masked-text#readme",
     "dependencies": {
-        "date-and-time": "0.9.0",
+        "date-and-time": "^3.0.3",
         "tinymask": "1.0.2"
     },
     "devDependencies": {

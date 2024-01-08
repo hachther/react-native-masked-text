@@ -9,7 +9,7 @@ test('getType results cel-phone', () => {
 
 test('5188888888 results (51) 8888-8888', () => {
     var mask = new CelPhoneMask()
-    var expected = '(51) 8888-8888'
+    var expected = '(51) 88 88 88 88'
     var received = mask.getValue('5188888888')
 
     expect(received).toBe(expected)
@@ -17,7 +17,7 @@ test('5188888888 results (51) 8888-8888', () => {
 
 test('51888888888 results (51) 88888-8888', () => {
     var mask = new CelPhoneMask()
-    var expected = '(51) 88888-8888'
+    var expected = '(51) 8 88 88 88 88'
     var received = mask.getValue('51888888888')
 
     expect(received).toBe(expected)
@@ -25,7 +25,7 @@ test('51888888888 results (51) 88888-8888', () => {
 
 test('88888888 withDDD=false results 8888-8888', () => {
     var mask = new CelPhoneMask()
-    var expected = '8888-8888'
+    var expected = '88 88 88 88'
     var received = mask.getValue('88888888', {
         withDDD: false
     })
@@ -35,7 +35,7 @@ test('88888888 withDDD=false results 8888-8888', () => {
 
 test('888888888 withDDD=false results 88888-8888', () => {
     var mask = new CelPhoneMask()
-    var expected = '88888-8888'
+    var expected = '8 88 88 88 88'
     var received = mask.getValue('888888888', {
         withDDD: false
     })
@@ -45,7 +45,7 @@ test('888888888 withDDD=false results 88888-8888', () => {
 
 test('12377777777 dddMask=999  results 123 7777-7777', () => {
     var mask = new CelPhoneMask()
-    var expected = '123 7777-7777'
+    var expected = '123 77 77 77 77'
     var received = mask.getValue('12377777777', {
         dddMask: '999 '
     })
@@ -55,7 +55,7 @@ test('12377777777 dddMask=999  results 123 7777-7777', () => {
 
 test('123777777777 dddMask=999  results 123 77777-7777', () => {
     var mask = new CelPhoneMask()
-    var expected = '123 77777-7777'
+    var expected = '123 7 77 77 77 77'
     var received = mask.getValue('123777777777', {
         dddMask: '999 '
     })
@@ -98,7 +98,7 @@ test('1237777777 dddMask=999  is not valid', () => {
 
 test('5188888888 results (51) 8888-8888 and raw value 5188888888', () => {
     var mask = new CelPhoneMask()
-    var expected = '(51) 8888-8888'
+    var expected = '(51) 88 88 88 88'
     var received = mask.getValue('5188888888')
 
     var expectedRawValue = '5188888888'
@@ -110,7 +110,7 @@ test('5188888888 results (51) 8888-8888 and raw value 5188888888', () => {
 
 test('123777777777 dddMask=999  results 123 77777-7777 and raw value 123777777777', () => {
     var mask = new CelPhoneMask()
-    var expected = '123 77777-7777'
+    var expected = '123 7 77 77 77 77'
     var received = mask.getValue('123777777777', {
         dddMask: '999 '
     })
@@ -126,7 +126,7 @@ test('123777777777 dddMask=999  results 123 77777-7777 and raw value 12377777777
 
 test('getMask for 99999999 returns (99) 9999-9999', () => {
     var mask = new CelPhoneMask()
-    var expected = '(99) 9999-9999'
+    var expected = '(99) 99 99 99 99'
     var received = mask.getMask('99999999')
 
     expect(received).toBe(expected)
@@ -134,7 +134,7 @@ test('getMask for 99999999 returns (99) 9999-9999', () => {
 
 test('getMask for 9988887777 returns (99) 9999-9999', () => {
     var mask = new CelPhoneMask()
-    var expected = '(99) 9999-9999'
+    var expected = '(99) 99 99 99 99'
     var received = mask.getMask('9988887777')
 
     expect(received).toBe(expected)
@@ -142,7 +142,7 @@ test('getMask for 9988887777 returns (99) 9999-9999', () => {
 
 test('getMask for 99888877776 returns (99) 99999-9999', () => {
     var mask = new CelPhoneMask()
-    var expected = '(99) 99999-9999'
+    var expected = '(99) 9 99 99 99 99'
     var received = mask.getMask('99888877776')
 
     expect(received).toBe(expected)
@@ -150,7 +150,7 @@ test('getMask for 99888877776 returns (99) 99999-9999', () => {
 
 test('getMask for 999998888 without DDD returns 99999-9999', () => {
     var mask = new CelPhoneMask()
-    var expected = '99999-9999'
+    var expected = '9 99 99 99 99'
     var received = mask.getMask('999998888', { withDDD: false })
 
     expect(received).toBe(expected)
@@ -158,7 +158,7 @@ test('getMask for 999998888 without DDD returns 99999-9999', () => {
 
 test('getValue for (12) 1234-56789 must return (12) 12345-6789', () => {
     var mask = new CelPhoneMask()
-    var expected = '(12) 12345-6789'
+    var expected = '(12) 1 23 45 67 89'
     var received = mask.getValue('(12) 1234-56789')
 
     expect(received).toBe(expected)
